@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="monetization" content="$ilp.uphold.com/aQRDhXwhwgAX" />
+    <title>Game</title>
+  </head>
+  <body>
+    <div id="status">Loading</div>
+  </body>
+  <script>
+    if (!document.monetization) {
+      var id = document.getElementById("status");
+      id.innerHTML = "Sorry You Have Not Enabled Web Monetization";
+    }
+    var state = document.monetization;
+
+    if (state === "stopped") {
+      id.innerHTML = "Please Check If Coil Is Working Properly";
+    }
+    document.monetization.addEventListener("monetizationstart", () => {
+      window.location.href = "./monetized.html";
+    });
+  </script>
+</html>
